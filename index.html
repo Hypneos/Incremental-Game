@@ -1,0 +1,78 @@
+<head>
+<meta charset="utf-8">
+<title>incremental name</title>
+<script src="game.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body onload="init()">
+
+
+<section style="float:right">
+<header>Mine<span style="float:right"><span class="gem-list-size"></span>/<span class="max-gems"></span></span></header>
+<div>
+<progress value=0 max=1 id="mining-progress" >22</progress><br/>
+<span class="mining-time"></span>s/gem * <span class="pocket-size"></span> gems + <span class="travel-time"></span>s  = <span class="total-time"></span>s / trip
+</div>
+<ul class="mine-loot-list" id="mining-result">
+</ul>
+</section>
+
+
+<section>
+<header>Overview</header>
+Money : <span class="money-amount"></span>¤</br>
+<button onclick="sell_selected()">Sell @ <span class="sale-ratio"></span>×q</button><br/>
+<input type="checkbox" id="autosell-toggle"><label>autosell</label></input><br/>
+<button onclick="sell_all()">Sell all</button>
+</section>
+
+
+<section>
+<header>Upgrades
+<hint>
+<div>Buy upgrades with ¤</div>
+</hint></header>
+<div id="upgrade-list"></div>
+</section>
+
+
+<section style="visibility:hidden" id="market">
+<header>Market
+<hint>
+<div>Select some gems and click on an offer.<br/>If the requirements are satisfied, <b>all of the selected gems</b> will be removed, and you will gain some ¤</div>
+</hint></header>
+next offers :<span style="float:right" class="market-timer"></span><hr/>
+<div id="market-list"></div>
+</section>
+
+
+
+
+
+
+
+<section id="options-section" style="float:right" class="minimized" onclick="this.className=this.className && [] || ['minimized']">
+<header>Options</header>
+<content>
+<button onclick="save_game( game )">Save</button>
+<button onclick="reset_game()">Reset<hr/>no confirmation</button>
+</content>
+</section>
+<section id="info-section" onclick="this.className=this.className && [] || ['minimized']">
+<header>Info</header>
+<content>
+<p>Hello,<br/>
+this a game about manipulating gems.<br/>
+Every time the bar fills up, you will receive some gems.<br/>
+<i>Consult the formula for help</i></p>
+<p>You can select gems by clicking on them, try it :)<br/>
+You can then use actions from the other sections.
+Ex:<br/>
+"Sell" will sell the selected gems at a fraction of their quality<br/>
+<p/>
+<p>For convenience, "Sell all" will sell all off your possessed gems<br/>
+and toggling "autosell" will automatically sell any gem you select</p>
+<p>Click this block to minimize it.</p>
+</content>
+</section>
+</body>

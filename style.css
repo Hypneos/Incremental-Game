@@ -1,0 +1,160 @@
+section{
+display: inline-block;
+border: 1px solid black;
+border-radius: 3px;
+padding: 5px;
+vertical-align: top;
+max-width: 49%;
+margin: 5px;
+}
+
+section>header{
+background-color:gray;
+margin: -5px;
+margin-bottom: 0px;
+padding: 5px;
+}
+
+#info-section {
+	display: block;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	background-color: white;
+	z-index: 1;
+	}
+
+#options-section {
+	display: block;
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	background-color: white;
+	z-index: 1;
+	}
+
+
+#options-section button {
+	vertical-align: top;
+	margin: 2em;
+	}
+
+section.minimized > content {
+	display:none;
+}
+
+
+.mine-loot-list {
+	border: 1px dashed silver;
+	list-style-type: none;
+	padding: 5px;
+	}
+	
+
+gem {
+	display: block;
+	border: 1px solid black;
+	border-radius: 3px;
+	padding: 3px;
+	clear: both;
+	}
+
+gem:hover{
+	border: 1px solid blue;
+	}
+
+gem.selected{
+	background-color: #EEF;
+	}
+
+
+gem > div {
+	display: inline-block;
+	}
+
+gem > *:not( :first-child ) {
+	float: right;
+	}
+
+upgrade {
+	display: block;
+	border: 1px solid black;
+	border-radius: 3px;
+	padding: 5px;
+	margin: 3px;
+	position: relative;
+	}
+
+info {
+	display: inline;
+	font-family: monospace;
+	font-size: 0.8em;
+	visibility: hidden;
+	position: absolute;
+	background-color: #888;
+	padding: 3px;
+	margin: 5px;
+	border: 0.5px solid black;
+	border-radius: 5px;
+	Z-index: 1;
+	}
+
+upgrade:hover > info {
+	visibility: visible;
+	}
+
+	
+hint {
+	display: inline-block;
+	float: right;
+	border: 1px dashed white;
+	border-radius: 3px;
+	padding: 3px;
+	margin-top: -3px;
+	position: relative;
+	}
+
+hint::before {
+	content: "?";
+	}
+
+hint:not(:hover) > * {
+	visibility: collapse;
+	}
+
+hint > * {
+	position: absolute;
+	background-color: silver;
+	max-width: 50vw;
+	border: 1px solid black;
+	border-radius: 3px;
+	padding: 3px;
+	Z-index: 1;
+	
+	max-width: 50vw;
+	}
+
+hint:hover > * {
+	visibility: visible;
+	}
+
+market-offer {
+	display: inline-block;
+	background-color: silver;
+	border: 1px solid black;
+	border-radius: 3px;
+	margin: 3px;
+	padding: 5px;
+	}
+
+market-offer>hr+div {
+	text-align: right;
+	}
+
+market-offer:hover {
+	border-color: blue;
+	}
+
+
+
+
