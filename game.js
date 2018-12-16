@@ -134,6 +134,11 @@ const upgrade_list = {
 		effects:["+5 max gems"],
 		result:()=>{ game.storage.max_gems += 5 },
 		depends:["store-2"]
+		},
+	
+	"end":{ name:"This is the end", cost: 100,
+		lore:"Thank you for playing.",
+		depend:["store-3","minedepth-3","trip-speed-3","pocket-3","market-3"]
 		}
 	
 	}
