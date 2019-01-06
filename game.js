@@ -138,8 +138,37 @@ const upgrade_list = {
 	
 	"end":{ name:"This is the end", cost: 100,
 		lore:"Thank you for playing.",
-		depend:["store-3","minedepth-3","trip-speed-3","pocket-3","market-3"]
+		depends:["store-3","minedepth-3","trip-speed-3","pocket-3","market-3"],
+		effects:[]
 		}
+	
+	}
+
+function needs_attribute( elem, attr_name, default_value ){
+	
+	if( elem === undefined ) {
+		console.log( elem, "is undefined" );
+		return false;
+		}
+	
+	if( elem[attr_name] === undefined ) {
+		console.log( attr_name, "is undefined in", elem );
+		elem[ attr_name ] = default_value;
+		return false;
+		}
+	
+	return true;
+	}
+
+for( let key in upgrade_list ){
+	
+	let up = upgrade_list[ key ];
+	
+	needs_attribute( up, "name", "<no name defined>" );
+	needs_attribute( up, "cost", 0 );
+	needs_attribute( up, "lore", "<no lore defined>" );
+	needs_attribute( up, "depends", undefined );
+	needs_attribute( up, "effects", undefined );
 	
 	}
 
@@ -610,7 +639,7 @@ function save_version() {
 
 function save_game( game ) {
 	
-	console.log( game.upgrades );
+	// console.log( game.upgrades );
 	
 	let stripped_save = {
 		mine: game.mine,
@@ -648,7 +677,7 @@ function save_game( game ) {
 		}
 	
 	
-	console.log( stripped_save )
+	// console.log( stripped_save )
 	
 	// commit save
 	
@@ -752,6 +781,9 @@ function new_save() {
 		};
 	
 	for( let key in upgrade_list ){
+		
+		//console.log( upgrade_list[key] )
+		
 		if( ( upgrade_list[ key ].depends && upgrade_list[ key ].depends.length || 0 ) === 0 ) {
 			tmp.upgrades.unlocked.push( key );
 			}
